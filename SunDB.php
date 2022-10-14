@@ -585,7 +585,7 @@ class SunDB
                 $result = $query->execute($this->values);
                 $this->rowCount = $query->rowCount(); // affected row count
                 $exp = explode(' ', $this->query); // for determine the action
-                if ($exp[0] == 'select') {
+                if (strtolower($exp[0]) == 'select') {
                     $this->queryResult = $query->fetchAll();
                     $query->closeCursor(); unset($query);
                     return $this->queryResult;
